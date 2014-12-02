@@ -1,2 +1,2 @@
-class SnowplowMalfuncioningError < RuntimeError
+class SnowplowMalfunctioningError < RuntimeError
 end
