@@ -1,5 +1,3 @@
-Dir['dependencies'].each { |f| require f }
-
 class SnowRescueSvc    
   def initialize(weather_svc, municipal_svc, press_svc)
     @weather_svc, @municipal_svc, @press_svc = weather_svc, municipal_svc, press_svc

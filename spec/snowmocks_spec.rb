@@ -77,5 +77,4 @@ describe SnowRescueSvc do
       subject.check_and_perform_rescue
     end
   end
-  
 end
