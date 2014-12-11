@@ -8,10 +8,10 @@ require_relative '../lib/dependencies/snowplow_malfunctioning_error'
 # https://github.com/rspec/rspec-mocks
 
 describe SnowRescueSvc do 
-  let(:press_svc) { PressSvc.new }
-  let(:weather_svc) { WeatherSvc.new }
-  let(:municipal_svc) { spy(MunicipalSvc.new) }
-  
+  let(:press_svc) { instance_double('PressSvc') }
+  let(:weather_svc) { instance_double('WeatherSvc') }
+  let(:municipal_svc) { instance_spy('MunicipalSvc') }
+    
   let(:snow) { 0 }
   let(:temp) { 0 }
 
@@ -50,7 +50,7 @@ describe SnowRescueSvc do
     context 'when the snowplow fails' do 
       before do 
         expect(municipal_svc).to receive(:send_snowplow).once.and_raise(SnowplowMalfunctioningError.new)
-        expect(municipal_svc).to receive(:send_snowplow).once.and_return(true)
+        expect(municipal_svc).to receive(:send_snowplow).once.and_return(0)
       end
     
       it 'sends another one' do 

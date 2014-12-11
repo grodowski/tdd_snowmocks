@@ -28,6 +28,6 @@ class SnowRescueSvc
   def send_and_check_snowplow
     @municipal_svc.send_snowplow  
   rescue SnowplowMalfunctioningError
-    @municipal_svc.send_snowplow  
+    @municipal_svc.send_snowplow
   end
 end
